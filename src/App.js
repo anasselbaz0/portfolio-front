@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from "react";
+import {withStyles} from "@material-ui/styles";
+import Navbar from "./components/Navbar";
 import './App.css';
+import colors from './assets/colors.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const styles = {
+    'application': {
+        'height': '100vh',
+        'background': colors.GRAY_1,
+        'color': colors.LIGHT_1,
+        'padding': '1rem',
+    }
+};
+
+class App extends Component {
+
+    // eslint-disable-next-line no-useless-constructor
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        const classes = this.props.classes;
+        return (
+            <div className={classes.application}>
+                <Navbar />
+            </div>
+        );
+    }
 }
 
-export default App;
+export default withStyles(styles)(App);
