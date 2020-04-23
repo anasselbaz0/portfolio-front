@@ -1,10 +1,14 @@
 const colors = {
 
-    'MAIN': '#ff9090',
+    'DARK': '#1b262c',
+    'DARK_BLUE': '#0f4c75',
+    'MIDDLE_BLUE': '#3282b8',
 
-    'GRAY_1': '#333333',
-    'LIGHT_1': '#FAFAFA',
+    'LIGHT_BLUE': '#bbe1fa',
+    'LIGHT_BLUE_30': '#bbe1fa44',
 
+    'GRAY': '#ccdddd',
+    'WHITE': '#ccdddd',
 
 };
 

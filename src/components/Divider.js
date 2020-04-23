@@ -4,12 +4,12 @@ import { withStyles } from '@material-ui/styles'
 
 const styles = {
     divider: {
-        width: '100%',
-        height: '.05rem',
+        height: '1px',
         display: 'block',
         position: 'relative',
-        margin: '1rem 0',
-        background: colors.MAIN,
+        margin: '0 1rem',
+        background: 'transparent',
+        borderBottom: '1px solid ' + colors.WHITE,
     },
     dividerContainer: {
         display: 'flex',
@@ -39,14 +39,14 @@ constructor(props) {
             this.props.text ?
                 (
                     <div className={classes.dividerContainer}>
-                        <b className={classes.divider}></b>
-                        <span className={classes.text}> { this.props.text }  </span>
-                        <b className={classes.divider}></b>
+                        <b className={classes.divider} style={{width: this.props.widht}}/>
+                            <span className={classes.text}> { this.props.text }  </span>
+                        <b className={classes.divider} style={{width: this.props.widht}}/>
                     </div>
                 )
             :
                 (
-                    <b className={classes.divider}></b>
+                    <b className={classes.divider} style={{width: this.props.widht}} />
                 )
         )
     }

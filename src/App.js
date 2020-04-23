@@ -1,16 +1,37 @@
 import React, {Component} from "react";
-import {withStyles} from "@material-ui/styles";
-import Navbar from "./components/Navbar";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import MainView from "./components/MainView/MainView";
 import './App.css';
-import colors from './assets/colors.js';
-
+import './media-queries.css';
+// import colors from "./assets/colors";
+import withStyles from "@material-ui/core/styles/withStyles";
+import Navigation from "./components/Navigation";
+import NavBar from "./components/Navbar";
+import Projects from "./components/Projects/Projects";
+import colors from "./assets/colors";
 
 const styles = {
     'application': {
-        'height': '100vh',
-        'background': colors.GRAY_1,
-        'color': colors.LIGHT_1,
-        'padding': '1rem',
+        display: 'flex',
+        flexDirection: 'column',
+        background: colors.DARK,
+        color: colors.WHITE,
+    },
+    'navigation': {
+        flex: '0',
+    },
+    'content': {
+        display: 'flex',
+        marginTop: '10vh',
+        height: '90vh',
+    },
+    'notNavigation': {
+        flex: '1'
+    },
+    'navbar': {
+        width: '100vw',
+        height: '10vh',
+        position: 'absolute'
     }
 };
 
@@ -24,9 +45,24 @@ class App extends Component {
     render() {
         const classes = this.props.classes;
         return (
-            <div className={classes.application}>
-                <Navbar />
-            </div>
+            <Router>
+                <div className={classes.application}>
+                    <div className={classes.navbar}>
+                        <NavBar />
+                    </div>
+                    <div className={classes.content}>
+                        <div className={classes.notNavigation}>
+                            <Switch>
+                                <Route path="/" exact component={MainView}/>
+                                <Route path="/projects" component={Projects}/>
+                            </Switch>
+                        </div>
+                        {/*<div className={classes.navigation}>*/}
+                        {/*    <Navigation />*/}
+                        {/*</div>*/}
+                    </div>
+                </div>
+            </Router>
         );
     }
 }
